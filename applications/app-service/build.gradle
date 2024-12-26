@@ -6,4 +6,7 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //1. AMQP dependencies here bc its obviously needed in the app-service
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
 }
