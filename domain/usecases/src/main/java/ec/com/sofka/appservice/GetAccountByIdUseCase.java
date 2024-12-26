@@ -1,5 +1,6 @@
-package ec.com.sofka;
+package ec.com.sofka.appservice;
 
+import ec.com.sofka.Account;
 import ec.com.sofka.gateway.AccountRepository;
 import ec.com.sofka.gateway.BusMessage;
 
