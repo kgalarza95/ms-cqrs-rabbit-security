@@ -1,0 +1,16 @@
+rootProject.name = 'hexagonalarchitecture'
+
+include ':app-service'
+findProject(':app-service').projectDir = file('./applications/app-service')
+
+include ':model'
+findProject(':model').projectDir = file('./domain/model')
+
+include ':usecases'
+findProject(':usecases').projectDir = file('./domain/usecases')
+
+include ':mongo-repository'
+findProject(':mongo-repository').projectDir = file('./infrastructure/driven-adapters/mongo-repository')
+
+include ':web'
+findProject(':web').projectDir = file('./infrastructure/entry-points/web')
