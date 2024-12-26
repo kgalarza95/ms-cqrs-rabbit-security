@@ -20,4 +20,11 @@ public class MongoAdapter implements AccountRepository {
 
         return new Account(found.getId(), found.getBalance(), found.getOwner(), found.getAccountNumber());
     }
+
+    @Override
+    public Account save(Account account) {
+        AccountEntity a = new AccountEntity(account.getBalance(), account.getOwner(), account.getAccountNumber());
+        AccountEntity saved = repository.save(a);
+        return new Account(saved.getId(), saved.getBalance(), saved.getOwner(), saved.getAccountNumber());
+    }
 }
