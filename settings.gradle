@@ -14,3 +14,7 @@ findProject(':mongo-repository').projectDir = file('./infrastructure/driven-adap
 
 include ':web'
 findProject(':web').projectDir = file('./infrastructure/entry-points/web')
+
+//9. Add the RabbitMQ driven adapter to the settings.gradle file
+include ':rabbit-info-bus'
+findProject(':rabbit-info-bus').projectDir = file('./infrastructure/driven-adapters/rabbit-info-bus')
