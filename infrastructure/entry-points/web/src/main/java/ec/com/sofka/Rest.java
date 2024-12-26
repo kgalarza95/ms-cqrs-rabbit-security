@@ -1,5 +1,6 @@
 package ec.com.sofka;
 
+import ec.com.sofka.data.RequestDTO;
 import ec.com.sofka.data.ResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,11 @@ public class Rest {
     @GetMapping("/account/{id}")
     public ResponseEntity<ResponseDTO> getAccountById(@PathVariable String id){
         return new ResponseEntity<>(handler.getAccountById(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/account")
+    public ResponseEntity<ResponseDTO> createAccount(@RequestBody RequestDTO requestDTO){
+        return new ResponseEntity<>(handler.createAccount(requestDTO), HttpStatus.CREATED);
     }
 
 }
