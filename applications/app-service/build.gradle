@@ -2,7 +2,9 @@ dependencies {
 
     implementation project (':usecases')
     implementation project (':mongo-repository')
-    implementation project(':web')
+    implementation project (':web')
+    //12. Implement the driven-adapter that has the BusMessage. Beware bc this was in the other way but in rabbit info bus and leads to circular reference
+    implementation project (':rabbit-info-bus')
 
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
