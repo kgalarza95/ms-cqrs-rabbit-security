@@ -18,3 +18,11 @@ findProject(':web').projectDir = file('./infrastructure/entry-points/web')
 //9. Add the RabbitMQ driven adapter to the settings.gradle file
 include ':rabbit-info-bus'
 findProject(':rabbit-info-bus').projectDir = file('./infrastructure/driven-adapters/rabbit-info-bus')
+
+//15. Add the new app related to logs: The consumer
+include 'app-logs'
+findProject(':app-logs').projectDir = file('./applications/app-logs')
+
+//19. Add the new app related to logs: The producer
+include ':rabbit-listener-bus'
+findProject(':rabbit-listener-bus').projectDir = file('./infrastructure/entry-points/rabbit-listener-bus')
