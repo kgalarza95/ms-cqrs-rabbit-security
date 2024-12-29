@@ -1,7 +1,7 @@
 package ec.com.sofka;
 
-import ec.com.sofka.applogs.PrintLogUseCase;
-import ec.com.sofka.gateway.BusMessageListener;
+import ec.com.sofka.usecase.PrintLogUseCase;
+import ec.com.sofka.gateway.BusMessageListenerGateway;
 import ec.com.sofka.usecase.RegisterLogUseCase;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 //20. Create the BusListener class
 @Service
-public class BusListener implements BusMessageListener {
+public class BusListener implements BusMessageListenerGateway {
 
     private final RegisterLogUseCase registerLogUseCase;
     private final PrintLogUseCase printLogUseCase;

@@ -12,16 +12,8 @@ public class RabbitConfig {
     public static final String EXCHANGE_NAME = "simpleExchange";
     public static final String QUEUE_NAME = "simpleQueue";
     public static final String ROUTING_KEY = "routingKey";
-// public static final String EXCHANGE_NAME = "example.exchange";
-//    public static final String QUEUE_NAME = "example.queue";
-//    public static final String ROUTING_KEY = "example.routingKey";
 
     //4. Exchange configuration
-//    @Bean
-//    public TopicExchange exchange() {
-//        return new TopicExchange(EXCHANGE_NAME);
-//    }
-
     @Bean
     public DirectExchange exchange(){
         return new DirectExchange(EXCHANGE_NAME);
@@ -35,14 +27,10 @@ public class RabbitConfig {
     }
 
     //6. Binding configuration: Connects queue with exchange - As many bindings as queues I have
-//    @Bean
-//    public Binding binding(Queue queue, TopicExchange exchange) {
-//        return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY);
-//    }
 
     @Bean
     public Binding binding(Queue queue, DirectExchange exchange){
-        return  BindingBuilder.bind(queue).to(exchange).with("routingKey");
+        return  BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY);
     }
 
 }

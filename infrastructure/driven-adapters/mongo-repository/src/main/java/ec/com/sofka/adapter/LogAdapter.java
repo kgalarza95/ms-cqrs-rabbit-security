@@ -20,7 +20,6 @@ public class LogAdapter implements LogRepositoryGateway {
     @Override
     public Mono<Log> saveLog(Log log) {
         LogDocument logDocument = LogMapper.toEntity(log);
-        System.out.println("log d ebase "+logDocument);
         return iLogRepository.save(logDocument).map(LogMapper::toDomain);
     }
 }

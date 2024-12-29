@@ -1,6 +1,5 @@
 package ec.com.sofka.mapper;
 
-import ec.com.sofka.Account;
 import ec.com.sofka.Log;
 import ec.com.sofka.document.LogDocument;
 

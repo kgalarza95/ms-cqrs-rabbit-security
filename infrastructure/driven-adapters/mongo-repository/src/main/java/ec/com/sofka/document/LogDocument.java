@@ -46,12 +46,4 @@ public class LogDocument {
         this.registrationDate = registrationDate;
     }
 
-    @Override
-    public String toString() {
-        return "LogDocument{" +
-                "id='" + id + '\'' +
-                ", message='" + message + '\'' +
-                ", registrationDate=" + registrationDate +
-                '}';
-    }
 }

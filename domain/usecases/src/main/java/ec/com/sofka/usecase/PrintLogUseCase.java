@@ -1,4 +1,4 @@
-package ec.com.sofka.applogs;
+package ec.com.sofka.usecase;
 
 //18. UseCase for printing logs
 public class PrintLogUseCase{
