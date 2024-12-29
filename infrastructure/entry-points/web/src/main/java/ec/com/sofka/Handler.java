@@ -17,25 +17,28 @@ public class Handler {
     }
 
     public ResponseDTO  getAccountById(String id){
-        Account account = getAccountByIdUseCase.apply(id);
-
-        return new ResponseDTO(
-                account.getOwner(),
-                account.getAccountNumber());
+//        Account account = getAccountByIdUseCase.apply(id);
+//
+//        return new ResponseDTO(
+//                account.getOwner(),
+//                account.getAccountNumber());
+        return null;
     }
 
     public ResponseDTO createAccount(RequestDTO request){
-        Account account = new Account(
-                null,
-                request.getBalance(),
-                request.getCustomer(),
-                request.getAccount());
+//        Account account = new Account(
+//                null,
+//                request.getBalance(),
+//                request.getCustomer(),
+//                request.getAccount());
+//
+//        Account a = createAccountUseCase.apply(account);
+//
+//        return new ResponseDTO(
+//                a.getOwner(),
+//                a.getAccountNumber());
 
-        Account a = createAccountUseCase.apply(account);
-
-        return new ResponseDTO(
-                a.getOwner(),
-                a.getAccountNumber());
+        return null;
     }
 
 }
