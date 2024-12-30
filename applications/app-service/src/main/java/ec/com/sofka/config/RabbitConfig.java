@@ -1,17 +1,22 @@
 package ec.com.sofka.config;
 
 import org.springframework.amqp.core.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 //2. Create class to configure RabbitMQ here in app layer: To generate beans
 @Configuration
 public class RabbitConfig {
+
     //3. Configurations: Environment variables - Names must follow a pattern like this
     // Each queue must have its own name - Broker admin must create this and provide us as info to connect later
-    public static final String EXCHANGE_NAME = "simpleExchange";
-    public static final String QUEUE_NAME = "simpleQueue";
-    public static final String ROUTING_KEY = "routingKey";
+    @Value("${amqp.exchange.default}")
+    public String EXCHANGE_NAME;
+    @Value("${amqp.queue.default}")
+    public  String QUEUE_NAME ;
+    @Value("${amqp.routing.key.default}")
+    public  String ROUTING_KEY;
 
     //4. Exchange configuration
     @Bean
