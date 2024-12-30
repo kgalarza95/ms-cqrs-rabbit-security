@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDate;
 
-//20. Create the BusListener class
 @Service
 public class BusListener implements BusMessageListenerGateway {
 
@@ -25,7 +24,6 @@ public class BusListener implements BusMessageListenerGateway {
         this.printLogUseCase = printLogUseCase;
     }
 
-    //23. Implement the receiveMsg method with the usecase
     @Override
     @RabbitListener(queues = "${amqp.queue.default}")
     public void receiveMsg(String message) {
