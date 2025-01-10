@@ -1,6 +1,6 @@
 package ec.com.sofka.adapter;
 
-import ec.com.sofka.Log;
+import ec.com.sofka.model.Log;
 import ec.com.sofka.document.LogDocument;
 import ec.com.sofka.gateway.LogRepositoryGateway;
 import ec.com.sofka.mapper.LogMapper;

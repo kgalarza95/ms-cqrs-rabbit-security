@@ -1,6 +1,6 @@
 package ec.com.sofka.mapper;
 
-import ec.com.sofka.Log;
+import ec.com.sofka.model.Log;
 import ec.com.sofka.document.LogDocument;
 
 public class LogMapper {

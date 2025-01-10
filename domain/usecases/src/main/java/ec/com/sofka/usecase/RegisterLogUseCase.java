@@ -1,6 +1,6 @@
 package ec.com.sofka.usecase;
 
-import ec.com.sofka.Log;
+import ec.com.sofka.model.Log;
 import ec.com.sofka.gateway.LogRepositoryGateway;
 import reactor.core.publisher.Mono;
 

@@ -1,4 +1,4 @@
-package ec.com.sofka;
+package ec.com.sofka.model;
 
 import java.time.LocalDate;
 
