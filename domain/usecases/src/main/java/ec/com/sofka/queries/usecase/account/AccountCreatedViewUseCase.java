@@ -1,14 +1,14 @@
-package ec.com.sofka.queries.usecase;
+package ec.com.sofka.queries.usecase.account;
 
-import ec.com.sofka.gateway.AccountRepository;
+import ec.com.sofka.gateway.repository.AccountRepository;
 import ec.com.sofka.gateway.dto.AccountDTO;
 import ec.com.sofka.generics.interfaces.IUseCaseAccept;
 
-public class AccountSavedViewUseCase implements IUseCaseAccept<AccountDTO, Void> {
+public class AccountCreatedViewUseCase implements IUseCaseAccept<AccountDTO, Void> {
 
     private final AccountRepository accountRepository;
 
-    public AccountSavedViewUseCase(AccountRepository accountRepository) {
+    public AccountCreatedViewUseCase(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 

@@ -1,34 +1,40 @@
 package ec.com.sofka;
 
 import ec.com.sofka.aggregate.events.AccountCreated;
+import ec.com.sofka.aggregate.events.AccountUpdated;
 import ec.com.sofka.gateway.dto.AccountDTO;
 import ec.com.sofka.generics.domain.DomainEvent;
-import ec.com.sofka.queries.usecase.AccountSavedViewUseCase;
-import ec.com.sofka.usecase.PrintLogUseCase;
-import ec.com.sofka.gateway.BusMessageListenerGateway;
-import ec.com.sofka.usecase.RegisterLogUseCase;
+import ec.com.sofka.queries.usecase.account.AccountCreatedViewUseCase;
+import ec.com.sofka.gateway.listerner.AccountBusMessageListenerGateway;
+import ec.com.sofka.queries.usecase.account.AccountUpdatedViewUseCase;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccountBusMessageListener implements BusMessageListenerGateway {
+public class AccountBusMessageListener implements AccountBusMessageListenerGateway {
 
 
-    private final RegisterLogUseCase registerLogUseCase;
-    private final PrintLogUseCase printLogUseCase;
-    private final AccountSavedViewUseCase accountSavedViewUseCase;
+    private final AccountCreatedViewUseCase accountCreatedViewUseCase;
+    private final AccountUpdatedViewUseCase accountUpdatedViewUseCase;
 
-    public AccountBusMessageListener(RegisterLogUseCase registerLogUseCase, PrintLogUseCase printLogUseCase, AccountSavedViewUseCase accountSavedViewUseCase) {
-        this.registerLogUseCase = registerLogUseCase;
-        this.printLogUseCase = printLogUseCase;
-        this.accountSavedViewUseCase = accountSavedViewUseCase;
+    public AccountBusMessageListener(AccountCreatedViewUseCase accountCreatedViewUseCase, AccountUpdatedViewUseCase accountUpdatedViewUseCase) {
+        this.accountCreatedViewUseCase = accountCreatedViewUseCase;
+        this.accountUpdatedViewUseCase = accountUpdatedViewUseCase;
     }
 
     @Override
     @RabbitListener(queues = "${amqp.queue.account}")
     public void receiveMsg(DomainEvent event) {
+        if (event instanceof AccountCreated) {
+            accountCreated( event);
+        } else if (event instanceof AccountUpdated) {
+            accountUpdated( event);
+        }
+    }
+
+    private void accountCreated(DomainEvent event){
         AccountCreated accountEvent = (AccountCreated) event;
-        accountSavedViewUseCase.accept(new AccountDTO(
+        accountCreatedViewUseCase.accept(new AccountDTO(
                 accountEvent.getAccountId(),
                 accountEvent.getName(),
                 accountEvent.getAccountNumber(),
@@ -37,4 +43,14 @@ public class AccountBusMessageListener implements BusMessageListenerGateway {
         ));
     }
 
+    private void accountUpdated(DomainEvent event){
+        AccountUpdated accountUpdatedEvent = (AccountUpdated) event;
+        accountUpdatedViewUseCase.accept(new AccountDTO(
+                accountUpdatedEvent.getAccountId(),
+                accountUpdatedEvent.getName(),
+                accountUpdatedEvent.getAccountNumber(),
+                accountUpdatedEvent.getBalance(),
+                accountUpdatedEvent.getStatus()
+        ));
+    }
 }

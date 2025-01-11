@@ -66,4 +66,15 @@ public class AccountDTO {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "AccountDTO{" +
+                "id='" + id + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", balance=" + balance +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }
