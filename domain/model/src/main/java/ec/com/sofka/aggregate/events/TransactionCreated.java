@@ -29,6 +29,10 @@ public class TransactionCreated extends DomainEvent {
         super(TransactionEventsEnum.TRANSACTION_CREATED.name());
     }
 
+    public TransactionCreated() {
+        super(TransactionEventsEnum.TRANSACTION_CREATED.name());
+    }
+
     public String getId() {
         return id;
     }
