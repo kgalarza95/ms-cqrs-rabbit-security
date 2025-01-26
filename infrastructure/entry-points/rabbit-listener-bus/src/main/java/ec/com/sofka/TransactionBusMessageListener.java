@@ -26,15 +26,14 @@ public class TransactionBusMessageListener implements CustomerBusMessageListener
     @Override
     @RabbitListener(queues = "${amqp.queue.transaction}")
     public void receiveMsg(DomainEvent event) {
-        System.out.println("Recived event");
         TransactionCreated domainEvent = (TransactionCreated) event;
         transactionCreatedViewUseCase.accept(new TransactionDTO(
-                domainEvent.getAccountId(),
                 domainEvent.getDescription(),
                 domainEvent.getAmount(),
                 domainEvent.getTransactionType(),
                 domainEvent.getDate(),
-                domainEvent.getAccountId()
+                domainEvent.getAccountId(),
+                domainEvent.getTax()
         ));
     }
 

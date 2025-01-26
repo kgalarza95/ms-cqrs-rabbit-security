@@ -10,14 +10,25 @@ public class TransactionDTO {
     private String transactionType;
     private LocalDate date;
     private String accountId;
+    private BigDecimal tax;
 
-    public TransactionDTO(String id, String description, BigDecimal amount, String transactionType, LocalDate date, String accountId) {
+    public TransactionDTO(String id, String description, BigDecimal amount, String transactionType, LocalDate date, String accountId, BigDecimal tax) {
         this.id = id;
         this.description = description;
         this.amount = amount;
         this.transactionType = transactionType;
         this.date = date;
         this.accountId = accountId;
+        this.tax = tax;
+    }
+
+    public TransactionDTO(String description, BigDecimal amount, String transactionType, LocalDate date, String accountId, BigDecimal tax) {
+        this.description = description;
+        this.amount = amount;
+        this.transactionType = transactionType;
+        this.date = date;
+        this.accountId = accountId;
+        this.tax = tax;
     }
 
     public TransactionDTO() {
@@ -69,5 +80,13 @@ public class TransactionDTO {
 
     public void setAccountId(String accountId) {
         this.accountId = accountId;
+    }
+
+    public BigDecimal getTax() {
+        return tax;
+    }
+
+    public void setTax(BigDecimal tax) {
+        this.tax = tax;
     }
 }

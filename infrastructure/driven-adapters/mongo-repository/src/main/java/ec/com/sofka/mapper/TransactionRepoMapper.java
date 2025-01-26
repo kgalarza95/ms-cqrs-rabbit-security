@@ -32,6 +32,7 @@ public class TransactionRepoMapper {
         entity.setTransactionType(transaction.getTransactionType());
         entity.setDate(transaction.getDate());
         entity.setAccountId(transaction.getAccountId());
+        entity.setTax(transaction.getTax());
         return entity;
     }
 }

@@ -13,6 +13,7 @@ public class TransactionEntity {
     private String id;
     private String description;
     private BigDecimal amount;
+    private BigDecimal tax;
     private String transactionType;
     private LocalDate date;
     private String accountId;
@@ -66,5 +67,13 @@ public class TransactionEntity {
 
     public void setAccountId(String accountId) {
         this.accountId = accountId;
+    }
+
+    public BigDecimal getTax() {
+        return tax;
+    }
+
+    public void setTax(BigDecimal tax) {
+        this.tax = tax;
     }
 }
